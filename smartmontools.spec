@@ -1,17 +1,12 @@
 Summary:	Tools for monitoring SMART capable hard disks
 Name:		smartmontools
-Version:	6.2
-Release:	4%{?dist}
+Version:	6.4
+Release:	1%{?dist}
 Epoch:		1
 Group:		System Environment/Base
 License:	GPLv2+
 URL:		http://smartmontools.sourceforge.net/
-Source0:	http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
-Source2:	smartmontools.sysconf
-Source4:	smartdnotify
-
-#fedora/rhel specific
-Patch1:		smartmontools-5.38-defaultconf.patch
+Source0:	%{name}-%{version}.tar.gz
 
 BuildRoot:	%(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
 Requires:	fileutils mailx chkconfig
@@ -34,7 +29,6 @@ failure.
 
 %prep
 %setup -q 
-%patch1 -p1 -b .defaultconf
 
 # fix encoding
 for fe in AUTHORS ChangeLog
@@ -61,8 +55,8 @@ make DESTDIR=$RPM_BUILD_ROOT install
 
 rm -f examplescripts/Makefile*
 chmod a-x -R examplescripts/*
-install -D -p -m 644 %{SOURCE2} $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/smartmontools
-install -D -p -m 755 %{SOURCE4} $RPM_BUILD_ROOT/%{_libexecdir}/%{name}/smartdnotify
+install -D -p -m 644 smartmontools.sysconf $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/smartmontools
+install -D -p -m 755 smartdnotify $RPM_BUILD_ROOT/%{_libexecdir}/%{name}/smartdnotify
 mkdir -p $RPM_BUILD_ROOT/%{_sysconfdir}/%{name}/smartd_warning.d
 rm -rf $RPM_BUILD_ROOT/etc/{rc.d,init.d}
 rm -rf $RPM_BUILD_ROOT/%{_docdir}/%{name}
@@ -93,7 +87,7 @@ fi
 %files
 %defattr(-,root,root,-)
 %doc AUTHORS ChangeLog COPYING INSTALL NEWS README
-%doc TODO WARNINGS examplescripts smartd.conf
+%doc TODO examplescripts smartd.conf
 %dir %{_sysconfdir}/%name
 %dir %{_sysconfdir}/%name/smartd_warning.d
 %config(noreplace) %{_sysconfdir}/%{name}/smartd.conf
@@ -103,7 +97,7 @@ fi
 %{_sbindir}/smartd
 %{_sbindir}/update-smart-drivedb
 %{_sbindir}/smartctl
-%{_mandir}/man?/smart*.*
+%{_mandir}/man?/*smart*.*
 %{_libexecdir}/%{name}
 %{_datadir}/%{name}
 
