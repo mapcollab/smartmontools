@@ -1,7 +1,7 @@
 Summary:	Tools for monitoring SMART capable hard disks
 Name:		smartmontools
 Version:	6.4
-Release:	1%{?dist}
+Release:	2%{?dist}
 Epoch:		1
 Group:		System Environment/Base
 License:	GPLv2+
@@ -102,6 +102,9 @@ fi
 %{_datadir}/%{name}
 
 %changelog
+* Thu Mar 17 2016 Tomasz Rostanski <tomasz.rostanski@thalesgroup.com> 6.4-2
+- 
+
 * Thu Mar 17 2016 Tomasz Rostanski <tomasz.rostanski@thalesgroup.com> 6.4-1
 - new package built with tito
 
