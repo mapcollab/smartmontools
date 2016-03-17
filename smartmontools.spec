@@ -102,6 +102,9 @@ fi
 %{_datadir}/%{name}
 
 %changelog
+* Thu Mar 17 2016 Tomasz Rostanski <tomasz.rostanski@thalesgroup.com> 6.4-1
+- new package built with tito
+
 * Fri Jan 24 2014 Daniel Mach <dmach@redhat.com> - 1:6.2-4
 - Mass rebuild 2014-01-24
 
