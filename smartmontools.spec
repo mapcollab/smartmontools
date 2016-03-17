@@ -1,7 +1,7 @@
 Summary:	Tools for monitoring SMART capable hard disks
 Name:		smartmontools
 Version:	6.4
-Release:	2%{?dist}
+Release:	3%{?dist}
 Epoch:		1
 Group:		System Environment/Base
 License:	GPLv2+
@@ -102,6 +102,17 @@ fi
 %{_datadir}/%{name}
 
 %changelog
+* Thu Mar 17 2016 Tomasz Rostanski <tomasz.rostanski@thalesgroup.com> 6.4-3
+- drivedb.h: Samsung based SSDs: Fix PM863 regexp, attribute IDs and name
+  length (tomasz.rostanski@thalesgroup.com.pl)
+- drivedb.h: PM863 Series (tomasz.rostanski@thalesgroup.com.pl)
+- Fixed detection for Samsung SSD 850 EVO mSATA 120GB
+  (tomasz.rostanski@thalesgroup.com.pl)
+- drivedb.h: Samsung PM871 SSD family (tomasz.rostanski@thalesgroup.com.pl)
+- tito: use release tagger, fix tag number (tomasz.rostanski@thalesgroup.com)
+- Automatic commit of package [smartmontools] minor release [6.4-2].
+  (tomasz.rostanski@thalesgroup.com)
+
 * Thu Mar 17 2016 Tomasz Rostanski <tomasz.rostanski@thalesgroup.com> 6.4-2
 - 
 
