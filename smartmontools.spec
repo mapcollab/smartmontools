@@ -1,6 +1,6 @@
 Summary:	Tools for monitoring SMART capable hard disks
 Name:		smartmontools
-Version:	6.4
+Version:	6.5
 Release:	1%{?dist}
 Epoch:		1
 Group:		System Environment/Base
